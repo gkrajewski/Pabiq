@@ -3,9 +3,6 @@ library(tidyr)
 library(data.table)
 
 #Wybierz plik z danymi:
-#data <- read.csv("PABIQWP3PL_20230227.csv")
-#data <- read.csv("PABIQCDIUK_20230227.csv")
-
 #data <- read.csv("PABIQCDINO_20231018.csv")
 #data <- read.csv("PABIQWP3PL_20231018.csv")
 data <- read.csv("PABIQCDIUK_20231018.csv")
@@ -24,7 +21,7 @@ trans <- trans %>% rename(x = uk)
 old <- keys$uk2
 
 #Koniec części z wyborami
-#(Wers 96: konwersje wybranych kolumn częstotliwości używania języka - należy ustawić ręcznie,
+#(Wers 97: konwersje wybranych kolumn częstotliwości używania języka - należy ustawić ręcznie,
 #które mają się przekonwertować)
 #Na koniec: zmiana nazwy pliku, w którym zapiszą się wyniki
 ################################################################################
