@@ -2,11 +2,10 @@ library(stringr)
 library(lubridate)
 library(dplyr)
 library(Multilada)
+library(data.table)
 
 #CHOOSE DATA
 data_calc <- read.csv("data_ready_no.csv")
-
-data_calc[data_calc == ""] <- NA
 
 #AGE CALCULATION
 data_calc$age_months <- age_months(data_calc$date_birth_old, data_calc$sb_date)
@@ -29,6 +28,8 @@ data_calc$worried <- as.integer(data_calc$worried)
 data_calc[data_calc$hearing_loss== "no", "hearing_loss"] <- 1
 data_calc[data_calc$hearing_loss== "yes", "hearing_loss"] <- 0
 data_calc$hearing_loss<- as.integer(data_calc$hearing_loss)
+
+data_calc[data_calc == ""] <- NA
 
 #IMPORTANT!
 #to count the number of child's relatives with specific problems, I count the number of commas in the proper data cell and add 1
@@ -111,7 +112,7 @@ exp_sum_calculation <- function(data_sum, lang_cols, additional_cols){
   data_sum2$x_other_people_contact <- ifelse(data_sum2$child_number_house >1, data_sum2$x_other_people_contact + 2* data_sum2$x_other_children, data_sum2$x_other_people_contact)
   
   data_sum2$x_situations <- data_sum2$x_books + data_sum2$x_computer + data_sum2$x_films + data_sum2$x_stories + data_sum2$x_songs
-  data_sum2$x_Exposure <- data_sum2$Exp_Risk + data_sum2$x_early_exp + data_sum2$x_current_skills + data_sum2$x_q1 + data_sum2$x_situations + data_sum2$x_other_people_contact
+  data_sum2$x_Exposure <- data_sum2$Exp_Risk + data_sum2$x_lang_timeframe + data_sum2$x_early_exp + data_sum2$x_current_skills + data_sum2$x_q1 + data_sum2$x_situations + data_sum2$x_other_people_contact
   
   #readjustment of column names and setting proper names of the new columns
   cols_pom2 <- c("x_lang_timeframe", "x_early_exp", "x_current_skills", "x_other_people_contact", "x_situations", "x_Exposure")
