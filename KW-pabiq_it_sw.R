@@ -42,13 +42,13 @@ data3 <- separate(data = data2, col = first_contact_lang, into = fcl, sep = "\\,
 data3[fcl] <- lapply(data3[fcl], gsub, pattern = "^.*: ", replacement = "")
 data3[fcl] <- lapply(data3[fcl], as.integer)
 
-#Konwersja kolumn first_word - opcje "n miesięcy lub wcześniej/później" zamieniane są na "n"
+#Konwersja kolumny first_word
 fwp <- c("first_word")
 data3 <- separate(data = data3, col = first_word, into = fwp, sep = "\\,")
 data3[fwp] <- lapply(data3[fwp], gsub, pattern = "^.*: ", replacement = "")
 data3[fwp] <- lapply(data3[fwp], as.integer)
 
-#Konwersja kolumn first_word - opcje "n miesięcy lub wcześniej/później" zamieniane są na "n"
+#Konwersja kolumny weight_birth_1
 wb1 <- c("weight_birth_1")
 data3 <- separate(data = data3, col = weight_birth_1, into = wb1, sep = "\\,")
 data3[wb1] <- lapply(data3[wb1], gsub, pattern = "^.*: ", replacement = "")
