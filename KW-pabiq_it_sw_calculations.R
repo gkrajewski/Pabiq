@@ -55,13 +55,6 @@ data_calc$family_difficulties <- (20 - data_calc$problem_read_write - data_calc$
 data_calc$Exp_Risk <- data_calc$first_word + data_calc$worried + data_calc$hearing_problems + data_calc$family_difficulties # + data_calc$first_phrase
 
 
-#CONVERSIONS WORDS -> NUMBERS
-
-#IMPORTANT!
-#to count the number of child's activities in the language, I count the number of commas in the proper data cell and add 1
-#REMEMBER to check if that's okay with your data and apply proper corrections if necessary
-
-
 #TOTAL EXPOSURE CALCULATION - FUNCTION
 exp_sum_calculation <- function(data_sum, lang_cols, additional_cols){
   
