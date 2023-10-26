@@ -118,7 +118,3 @@ write.csv2(data_calc_exp,"data_calc_it_pn_pl.csv",fileEncoding = "UTF-8")
 
 #data_calc_selected <- data_calc_exp %>% select("id", "Exposure_native")
 #data_calc_selected1 <- data_calc_selected[!is.na(data_calc_selected$Exposure_native),]
-
-#data_native <- data_calc_exp %>% select("id", "Exp_Risk", lang_cols_native, additional_cols_native)
-#data_native <- data_native[!is.na(data_native$Exposure_native),]
-#write.csv2(data_native,"data_calc_native1.csv",fileEncoding = "UTF-8")
