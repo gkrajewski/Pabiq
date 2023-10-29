@@ -69,8 +69,8 @@ exp_sum_calculation <- function(data_sum, lang_cols, additional_cols){
   #early exposition
   data_sum2$x_early_exp <- data_sum2$x_lang_timeframe*data_sum2$x_how_often
   
-  data_sum2$x_input <- data_sum2$x_guardian1_speak *2 + data_sum2$family_lang
-  data_sum2$x_input <- ifelse(data_sum2$is_guardian2 == "yes", data_sum2$x_input + 2* data_sum2$x_guardian2_speak, data_sum2$x_input)
+  data_sum2$x_input <- data_sum2$x_guardian1_speak *2
+  data_sum2$x_input <- ifelse(data_sum2$is_guardian2 == "no", data_sum2$x_input + 2* data_sum2$x_guardian2_speak, data_sum2$x_input)
   data_sum2$x_input <- ifelse(data_sum2$other_guardians >0, data_sum2$x_input + data_sum2$x_guardian3_speak, data_sum2$x_input)
   data_sum2$x_input <- ifelse(data_sum2$other_guardians >1, data_sum2$x_input + data_sum2$x_guardian4_speak, data_sum2$x_input)
   data_sum2$x_input <- ifelse(data_sum2$siblings >0, data_sum2$x_input + 2* data_sum2$x_other_children_speak, data_sum2$x_input)
@@ -78,7 +78,7 @@ exp_sum_calculation <- function(data_sum, lang_cols, additional_cols){
   if(lang_cols[1] == "first_contact_native"){data_sum2$x_input <- data_sum2$x_input + data_sum2$family_lang}
   
   data_sum2$x_output <- data_sum2$x_guardian1_child *2
-  data_sum2$x_output <- ifelse(data_sum2$is_guardian2 == "yes", data_sum2$x_output + 2* data_sum2$x_guardian2_child, data_sum2$x_output)
+  data_sum2$x_output <- ifelse(data_sum2$is_guardian2 == "no", data_sum2$x_output + 2* data_sum2$x_guardian2_child, data_sum2$x_output)
   data_sum2$x_output <- ifelse(data_sum2$other_guardians >0, data_sum2$x_output + data_sum2$x_guardian3_child, data_sum2$x_output)
   data_sum2$x_output <- ifelse(data_sum2$other_guardians >1, data_sum2$x_output + data_sum2$x_guardian4_child, data_sum2$x_output)
   data_sum2$x_output <- ifelse(data_sum2$siblings >0, data_sum2$x_output + 2* data_sum2$x_other_children_child, data_sum2$x_output)
