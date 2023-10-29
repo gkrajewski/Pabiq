@@ -54,6 +54,10 @@ data3 <- separate(data = data3, col = weight_birth_1, into = wb1, sep = "\\,")
 data3[wb1] <- lapply(data3[wb1], gsub, pattern = "^.*: ", replacement = "")
 data3[wb1] <- lapply(data3[wb1], as.integer)
 
+#Połączenie kolumn weight_birth i weight_birth_1
+data3$weight_birth_all <- data3$weight_birth
+data3$weight_birth_all <- ifelse(is.na(data3$weight_birth_all), data3$weight_birth_1, data3$weight_birth_all)
+
 #Funkcje konwertujące kolumny częstości języka - należy podać aktualną tabelę, tytuł kolumny do zmiany
 #i pożądane tytuły po rozdzieleniu (najlepiej: pierwotny_tytuł_oznaczeniejęzyka)
 #UWAGA! Funkcje bazują na schemacie "test=wartość;" i wyciągają "wartość" spomiędzy "=" i ";".
