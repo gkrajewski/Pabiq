@@ -5,20 +5,20 @@ library(data.table)
 #Wybierz plik z danymi:
 #data <- read.csv("PABIQCDINO_20231018.csv")
 #data <- read.csv("PABIQWP3PL_20231018.csv")
-data <- read.csv("PABIQCDIUK_20231018.csv")
+data <- read.csv("PABIQSCRPL_20231124.csv")
 
 #Wybierz plik z kluczami:
-keys <- read.csv("PABIQ-labels.csv")
+keys <- read.csv("labels_pabiq.csv")
 keys <- keys %>% filter(keys$Label != "")
 keys <- keys %>% filter(keys$If.needed != "")
 
 #Wybierz plik z tłumaczeniami
-trans <- read.csv("PABIQ-translations.csv")
+trans <- read.csv("translations_pabiq.csv")
 
 #Wybierz język (na końcu KAŻDEJ linijki!):
-trans <- trans %>% select(Translation, uk)
-trans <- trans %>% rename(x = uk)
-old <- keys$uk2
+trans <- trans %>% select(Translation, pl)
+trans <- trans %>% rename(x = pl)
+old <- keys$pl
 
 #Koniec części z wyborami
 #(Wers 97: konwersje wybranych kolumn częstotliwości używania języka - należy ustawić ręcznie,
