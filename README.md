@@ -1,2 +1,2 @@
 # MultiLADA
-Scripts for MultiLADA UW
+Code to process PaBiQ data from cdi.multilada.pl forms.
